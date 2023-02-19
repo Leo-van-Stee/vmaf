@@ -316,8 +316,6 @@ int vmaf_write_output_sub(VmafFeatureCollector* fc, FILE* outfile,
 int output_get_outputline_sub_Leo(VmafFeatureCollector* fc, unsigned frame, char* outputline) {
     int strpos = 0;
     for (unsigned featidx = 0; featidx < fc->cnt; featidx++) {
-        //fprintf(stderr, "fc-cnt %d\n", fc->cnt);
-        //fprintf(stdout, "STRONT STRONT fc-cnt %d\n", fc->cnt);
         if (frame > fc->feature_vector[featidx]->capacity)
 			continue;
 		if (!fc->feature_vector[featidx]->score[frame].written)
@@ -325,8 +323,6 @@ int output_get_outputline_sub_Leo(VmafFeatureCollector* fc, unsigned frame, char
 		strpos+=snprintf(outputline+strpos, 510, "%s: %.6f|",
 			vmaf_feature_name_alias(fc->feature_vector[featidx]->name),
 			fc->feature_vector[featidx]->score[frame].value);
-        //fprintf(stderr, "theline %s\n", outputline);
-        //fprintf(stdout, "STRONTtheline %s\n", outputline);
 		}
 	return 0;
 	}

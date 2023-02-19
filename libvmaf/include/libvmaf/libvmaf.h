@@ -333,6 +333,7 @@ All of them are parsed as int (*i); IOW, the * is bound to the declarator, not t
 */
 
 int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned frame, char* outputline);
+int poep(VmafContext* vmaf, unsigned frame, char* outputline);
 /**
  * Get libvmaf version.
  */

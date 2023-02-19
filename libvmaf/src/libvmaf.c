@@ -75,41 +75,27 @@ typedef struct VmafContext {
 	bool flushed;
 	} VmafContext;
 
-int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned frame, char* outputline) {
-	output_get_outputline_sub_Leo(vmaf->feature_collector, frame, outputline);
-	}
+//int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned frame, char* outputline) {
+//	output_get_outputline_sub_Leo(vmaf->feature_collector, frame, outputline);
+//	}
 
 
 //snprintf uses maximum capacity, it will not write more than n...
-int output_get_outputline_sub_Leo(VmafFeatureCollector* fc, unsigned frame, char* outputline) {
-	int strpos = 0;
-	for (unsigned featidx = 0; featidx < fc->cnt; featidx++) {
-		if (frame > fc->feature_vector[featidx]->capacity)
-			continue;
-		if (!fc->feature_vector[featidx]->score[frame].written)
-			continue;
-		strpos += snprintf(outputline + strpos, 510, "%s: %.6f|",
-			vmaf_feature_name_alias(fc->feature_vector[featidx]->name),
-			fc->feature_vector[featidx]->score[frame].value);
-		}
-	return 0;
-	}
+//int output_get_outputline_sub_Leo(VmafFeatureCollector* fc, unsigned frame, char* outputline) {
+//	int strpos = 0;
+//	for (unsigned featidx = 0; featidx < fc->cnt; featidx++) {
+//		if (frame > fc->feature_vector[featidx]->capacity)
+//			continue;
+//		if (!fc->feature_vector[featidx]->score[frame].written)
+//			continue;
+//		strpos += snprintf(outputline + strpos, 510, "%s: %.6f|",
+//			vmaf_feature_name_alias(fc->feature_vector[featidx]->name),
+//			fc->feature_vector[featidx]->score[frame].value);
+//		}
+//	return 0;
+//	}
 
-//snprintf uses maximum capacity, it will not write more than n...
-int output_get_outputline_sub_Zwechon(VmafContext* vmaf, unsigned frame, char* outputline) {
-	int strpos = 0;
-	VmafFeatureCollector* const fc = vmaf->feature_collector;
-	for (unsigned featidx = 0; featidx < fc->cnt; featidx++) {
-		if (frame > fc->feature_vector[featidx]->capacity)
-			continue;
-		if (!fc->feature_vector[featidx]->score[frame].written)
-			continue;
-		strpos += snprintf(outputline + strpos, 510, "%s: %.6f|",
-			vmaf_feature_name_alias(fc->feature_vector[featidx]->name),
-			fc->feature_vector[featidx]->score[frame].value);
-		}
-	return 0;
-	}
+
 
 int vmaf_init(VmafContext** vmaf, VmafConfiguration cfg)
 	{
@@ -891,6 +877,22 @@ int vmaf_score_pooled_model_collection(VmafContext* vmaf,
 const char* vmaf_version(void)
 	{
 	return VMAF_VERSION;
+	}
+
+//snprintf uses maximum capacity, it will not write more than n...
+int vmaf_get_outputline_sub_Zwechon(VmafContext* vmaf, unsigned frame, char* outputline) {
+	int strpos = 0;
+	VmafFeatureCollector* const fc = vmaf->feature_collector;
+	for (unsigned featidx = 0; featidx < fc->cnt; featidx++) {
+		if (frame > fc->feature_vector[featidx]->capacity)
+			continue;
+		if (!fc->feature_vector[featidx]->score[frame].written)
+			continue;
+		strpos += snprintf(outputline + strpos, 510, "%s: %.6f|",
+			vmaf_feature_name_alias(fc->feature_vector[featidx]->name),
+			fc->feature_vector[featidx]->score[frame].value);
+		}
+	return 0;
 	}
 
 

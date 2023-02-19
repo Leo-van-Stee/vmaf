@@ -325,8 +325,14 @@ int vmaf_write_output(VmafContext *vmaf, const char *output_path,
 
 
 
-int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned frame, char* outputline);
-int output_get_outputline_sub_Zwechon(VmafContext* vmaf, unsigned frame, char* outputline);
+//int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned frame, char* outputline);
+/*
+It's an accident of C syntax that you can write either
+int *i or int* i or even int    *      i. 
+All of them are parsed as int (*i); IOW, the * is bound to the declarator, not the type specifier.
+*/
+
+int vmaf_get_outputline_sub_Zwechon(VmafContext *vmaf, unsigned frame, char *outputline);
 
 
 /**

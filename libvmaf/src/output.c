@@ -319,7 +319,7 @@ int output_get_outputline_sub_Leo(VmafFeatureCollector* fc, unsigned frame, char
         if (!fc->feature_vector[featidx]->score[frame].written)
             continue;
         if (strpos == 0)
-            strpos += snprintf(outputline + strpos, 510, "%05d ", frame);
+            strpos += snprintf(outputline + strpos, 510, "%d %05d ", max_capacity(fc), frame);
 
         strpos += snprintf(outputline + strpos, 510, "%s: %.6f|",
             vmaf_feature_name_alias(fc->feature_vector[featidx]->name),

@@ -71,7 +71,7 @@ typedef struct VmafContext {
 		unsigned bpc;
 		enum VmafPictureBufferType buf_type;
 		} pic_params;
-	unsigned pic_cnt;
+	unsigned pic_cnt;  //Leo: this is a runnning counter, not the total frames..I think
 	bool flushed;
 	} VmafContext;
 

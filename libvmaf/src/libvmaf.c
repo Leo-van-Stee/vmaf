@@ -808,6 +808,8 @@ int vmaf_score_pooled(VmafContext* vmaf, VmafModel* model,
 		if (err) return err;
 		}
 
+
+
 	return vmaf_feature_score_pooled(vmaf, model->name, pool_method, score,
 		index_low, index_high);
 	}

@@ -311,7 +311,7 @@ int vmaf_write_output_sub(VmafFeatureCollector* fc, FILE* outfile,
 
 	return 0;
 	}
-int output_get_outputline_sub_Leo(VmafFeatureCollector* fc, unsigned frame, char* outputline) {
+int output_get_outputline_sub_Leo(VmafFeatureCollector* fc, unsigned int frame, char* outputline) {
     int strpos = 0;
     for (unsigned featidx = 0; featidx < fc->cnt; featidx++) {
         if (frame > fc->feature_vector[featidx]->capacity)

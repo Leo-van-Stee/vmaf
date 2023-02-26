@@ -332,7 +332,7 @@ int *i or int* i or even int    *      i.
 All of them are parsed as int (*i); IOW, the * is bound to the declarator, not the type specifier.
 */
 
-int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned frame, char* outputline);
+int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned int frame, char* outputline);
 /**
  * Get libvmaf version.
  */

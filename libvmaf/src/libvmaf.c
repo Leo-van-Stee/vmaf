@@ -881,7 +881,7 @@ const char* vmaf_version(void)
 	return VMAF_VERSION;
 	}
 
-int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned frame, char* outputline) {
+int vmaf_get_outputline_sub_Leo(VmafContext* vmaf, unsigned int frame, char* outputline) {
 	output_get_outputline_sub_Leo(vmaf->feature_collector, frame, outputline);
 	}
 
